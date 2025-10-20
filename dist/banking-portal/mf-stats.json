@@ -1,0 +1,254 @@
+{
+  "id": "banking_portal",
+  "name": "banking_portal",
+  "metaData": {
+    "name": "banking_portal",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "1.0.0",
+      "buildName": "arquetipo-mfa-nexus-portal-web"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "banking_portal",
+    "pluginVersion": "0.20.0",
+    "prefetchInterface": false,
+    "publicPath": ""
+  },
+  "shared": [
+    {
+      "singleton": true,
+      "requiredVersion": "^20.0.0",
+      "shareScope": "default",
+      "strictVersion": true,
+      "name": "@angular/common",
+      "version": "20.3.6",
+      "eager": false,
+      "id": "banking_portal:@angular/common",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "705.b83837bc43bef97d.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./AccountsModule",
+        "./ClientsModule",
+        "./MovementsModule",
+        "./ReportsModule"
+      ]
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^20.0.0",
+      "shareScope": "default",
+      "strictVersion": true,
+      "name": "@angular/core",
+      "version": "20.3.6",
+      "eager": false,
+      "id": "banking_portal:@angular/core",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "203.5805760005479575.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./AccountsModule",
+        "./ClientsModule",
+        "./MovementsModule",
+        "./ReportsModule"
+      ]
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^20.0.0",
+      "shareScope": "default",
+      "strictVersion": true,
+      "name": "@angular/forms",
+      "version": "20.3.6",
+      "eager": false,
+      "id": "banking_portal:@angular/forms",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "417.9523301e8152af9e.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./AccountsModule",
+        "./ClientsModule",
+        "./MovementsModule",
+        "./ReportsModule"
+      ]
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^20.0.0",
+      "shareScope": "default",
+      "strictVersion": true,
+      "name": "@angular/router",
+      "version": "20.3.6",
+      "eager": false,
+      "id": "banking_portal:@angular/router",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "825.4a0914a25c28783b.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^7.8.2",
+      "shareScope": "default",
+      "name": "rxjs",
+      "version": "7.8.2",
+      "eager": false,
+      "id": "banking_portal:rxjs",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "322.f2229c620dc548a8.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./ClientsModule",
+        "./AccountsModule",
+        "./MovementsModule",
+        "./ReportsModule"
+      ]
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "path": "./ClientsModule",
+      "id": "banking_portal:ClientsModule",
+      "name": "ClientsModule",
+      "requires": [
+        "@angular/core",
+        "@angular/common",
+        "rxjs",
+        "@angular/forms"
+      ],
+      "file": "src\\app\\features\\clients\\pages\\clients-page\\clients-page.component.ts",
+      "assets": {
+        "js": {
+          "sync": [],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./AccountsModule",
+      "id": "banking_portal:AccountsModule",
+      "name": "AccountsModule",
+      "requires": [
+        "@angular/core",
+        "@angular/common",
+        "rxjs",
+        "@angular/forms"
+      ],
+      "file": "src\\app\\features\\accounts\\pages\\accounts-page\\accounts-page.component.ts",
+      "assets": {
+        "js": {
+          "sync": [],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./MovementsModule",
+      "id": "banking_portal:MovementsModule",
+      "name": "MovementsModule",
+      "requires": [
+        "@angular/core",
+        "@angular/common",
+        "rxjs",
+        "@angular/forms"
+      ],
+      "file": "src\\app\\features\\movements\\pages\\movements-page\\movements-page.component.ts",
+      "assets": {
+        "js": {
+          "sync": [],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    },
+    {
+      "path": "./ReportsModule",
+      "id": "banking_portal:ReportsModule",
+      "name": "ReportsModule",
+      "requires": [
+        "@angular/core",
+        "@angular/common",
+        "rxjs",
+        "@angular/forms"
+      ],
+      "file": "src\\app\\features\\reports\\pages\\reports-page\\reports-page.component.ts",
+      "assets": {
+        "js": {
+          "sync": [],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      }
+    }
+  ]
+}

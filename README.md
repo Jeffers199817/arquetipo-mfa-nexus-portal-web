@@ -1,251 +1,202 @@
-# Banking Portal Frontend
+<div align="center">
+  
+  <h1>Arquetipo MFA · Nexus Portal Web (Banking Portal)</h1>
 
-Aplicación frontend para el portal bancario desarrollada con Angular 17, implementando arquitectura de micro frontends y siguiendo las mejores prácticas de desarrollo.
+  <p>Frontend bancario moderno basado en Angular 20, arquitectura modular y Micro Frontends.</p>
 
-## 🚀 Características
+  <p>
+    <img alt="Angular" src="https://img.shields.io/badge/Angular-20-dd0031?logo=angular&logoColor=white"> 
+    <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white"> 
+    <img alt="Build" src="https://img.shields.io/badge/Build-ngx--build--plus-blue"> 
+    <img alt="License" src="https://img.shields.io/badge/License-MIT-green">
+  </p>
+</div>
 
-- **Angular 17** con arquitectura standalone components
-- **Micro Frontends** con Module Federation
-- **Clean Code** y principios SOLID
-- **Pruebas unitarias** con Jest
-- **Diseño responsivo** sin frameworks de UI
-- **Arquitectura modular** con separación de responsabilidades
-- **Gestión de estado** reactiva con RxJS
-- **Notificaciones** en tiempo real
-- **Reportes** con descarga en PDF
+---
 
-## 📋 Funcionalidades
+### Tabla de contenidos
 
-### Gestión de Clientes
-- ✅ CRUD completo de clientes
-- ✅ Búsqueda y filtrado
-- ✅ Validaciones de formulario
-- ✅ Gestión de estados
+- Introducción
+- Características
+- Arquitectura y rutas
+- Requisitos
+- Instalación y ejecución local
+- Comandos disponibles
+- Configuración de entornos
+- Proxy de desarrollo (API)
+- Construcción para producción
+- Despliegue con Nginx
+- Estructura del proyecto
+- Contribución y licencia
 
-### Gestión de Cuentas
-- ✅ CRUD completo de cuentas bancarias
-- ✅ Asociación con clientes
-- ✅ Tipos de cuenta (Ahorros/Corriente)
-- ✅ Control de saldos
+---
 
-### Gestión de Movimientos
-- ✅ CRUD completo de movimientos
-- ✅ Depósitos y retiros
-- ✅ Validación de saldo disponible
-- ✅ Historial de transacciones
+### Introducción
 
-### Reportes
-- ✅ Generación de reportes por fechas
-- ✅ Filtros por cliente y tipo de movimiento
-- ✅ Descarga en formato PDF
-- ✅ Resúmenes estadísticos
+Este repositorio contiene el frontend del Portal Bancario, nombre del paquete `arquetipo-mfa-nexus-portal-web` y aplicación Angular `banking-portal`. El proyecto aprovecha Module Federation para escenarios de Micro Frontends y sigue buenas prácticas de diseño y mantenimiento.
 
-## 🛠️ Tecnologías
+### Características
 
-- **Angular 17** - Framework principal
-- **TypeScript** - Lenguaje de programación
-- **SCSS** - Preprocesador CSS
-- **RxJS** - Programación reactiva
-- **Jest** - Framework de testing
-- **Docker** - Containerización
-- **Nginx** - Servidor web
-- **Module Federation** - Micro frontends
+- **Angular 20** con Standalone Components
+- **Micro Frontends** con Module Federation (`@module-federation/enhanced` + `ngx-build-plus`)
+- **Arquitectura modular**: `core`, `features`, `shared`
+- **SCSS** y tipografías modernas (Inter)
+- **RxJS** para flujos reactivos
+- **Testing** con Karma + Jasmine (CLI)
 
-## 📦 Instalación
+### Arquitectura y rutas
 
-### Prerrequisitos
-- Node.js 18+ 
-- npm 9+
-- Docker (opcional)
+- Rutas principales: `/clients`, `/accounts`, `/movements`, `/reports` (redirección por defecto a `/clients`).
+- SPA con `index.html` único y navegación por `Router`.
 
-### Instalación local
+### Requisitos
+
+- Node.js ≥ 18.19.x (recomendado 20 LTS)
+- npm ≥ 9
+
+### Instalación y ejecución local
 
 ```bash
-# Clonar el repositorio
-git clone <repository-url>
-cd banking-portal-frontend
-
-# Instalar dependencias
+git clone <url-del-repositorio>
+cd arquetipo-mfa-nexus-portal-web
 npm install
-
-# Iniciar servidor de desarrollo
 npm start
-
-# La aplicación estará disponible en http://localhost:4200
+# Disponible en http://localhost:4200
 ```
 
-### Instalación con Docker
+Nota: En modo desarrollo se aplica el `proxy.conf.json` automáticamente según `angular.json`.
+
+### Comandos disponibles
 
 ```bash
-# Construir y ejecutar con Docker Compose
-docker-compose up --build
+# Desarrollo
+npm start                 # ng serve (config dev + proxy)
 
-# Para desarrollo
-docker-compose --profile dev up --build
+# Build
+npm run build             # build por defecto (production)
+npm run build:prod        # build forzado a producción
+npm run watch             # build en watch para desarrollo
+
+# Tests
+npm test                  # Karma + Jasmine (CLI)
+npm run test:ci           # ChromeHeadless sin watch
+
+# SSR (si aplica distribución SSR)
+npm run serve:ssr
 ```
 
-## 🧪 Testing
+### Configuración de entornos
+
+Los entornos viven en `src/environments`.
+
+```ts
+// src/environments/environment.ts (desarrollo)
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:9090/spf-msa-apex-core-service',
+  appName: 'Banking Portal',
+  version: '1.0.0',
+  enableLogging: true,
+  enableMockData: false,
+  features: {
+    enableReports: true,
+    enablePdfDownload: true,
+    enableAdvancedSearch: true
+  }
+};
+```
+
+```ts
+// src/environments/environment.prod.ts (producción)
+export const environment = {
+  production: true,
+  apiUrl: 'https://dev-api.pichincha.com/spf-msa-apex-core-service',
+  appName: 'Banking Portal',
+  version: '1.0.0',
+  enableLogging: false,
+  enableMockData: false,
+  features: {
+    enableReports: true,
+    enablePdfDownload: true,
+    enableAdvancedSearch: true
+  }
+};
+```
+
+### Proxy de desarrollo (API)
+
+El proxy enruta peticiones locales al backend para evitar CORS durante desarrollo.
+
+```json
+// proxy.conf.json
+{
+  "/spf-msa-apex-core-service": {
+    "target": "http://localhost:9090",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  }
+}
+```
+
+`ng serve` ya usa este proxy según `angular.json` (configuración "development").
+
+### Construcción para producción
+
+Salida por defecto: `dist/banking-portal`.
 
 ```bash
-# Ejecutar pruebas unitarias
-npm test
-
-# Ejecutar pruebas con cobertura
-npm run test:coverage
-
-# Ejecutar pruebas en modo watch
-npm run test:watch
+npm run build            # producción (output hashing, budgets)
+npm run build:prod       # equivalente con flag explícito
 ```
 
-## 🏗️ Construcción
+El proyecto usa `ngx-build-plus` con `webpack.config.js` para habilitar Module Federation.
 
-```bash
-# Construir para desarrollo
-npm run build
+### Despliegue con Nginx
 
-# Construir para producción
-npm run build:prod
+Se incluye una configuración lista para SPA en `nginx.conf`:
 
-# Análisis de bundle
-npm run build:analyze
+```nginx
+# Redirige rutas SPA a index.html y aplica cache estática
+location / {
+  try_files $uri $uri/ /index.html;
+}
+
+location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+  expires 1y;
+  add_header Cache-Control "public, immutable";
+}
 ```
 
-## 📁 Estructura del Proyecto
+Opcionalmente, puedes exponer `/api/` hacia tu backend ajustando el `proxy_pass`.
+
+### Estructura del proyecto
 
 ```
 src/
 ├── app/
-│   ├── core/                    # Servicios y modelos centrales
-│   │   ├── models/             # Interfaces y tipos
-│   │   └── services/           # Servicios de API
-│   ├── features/               # Módulos de funcionalidades
-│   │   ├── clients/           # Gestión de clientes
-│   │   ├── accounts/          # Gestión de cuentas
-│   │   ├── movements/         # Gestión de movimientos
-│   │   └── reports/           # Generación de reportes
-│   ├── shared/                # Componentes compartidos
-│   │   └── components/        # Componentes reutilizables
-│   └── app.component.ts       # Componente raíz
-├── environments/              # Configuraciones de entorno
-└── styles.scss               # Estilos globales
+│   ├── core/
+│   │   ├── models/
+│   │   └── services/
+│   ├── features/
+│   │   ├── clients/
+│   │   ├── accounts/
+│   │   ├── movements/
+│   │   └── reports/
+│   ├── shared/
+│   │   └── components/
+│   └── app.routes.ts
+├── environments/
+└── styles.scss
 ```
 
-## 🎨 Diseño
+### Contribución
 
-La aplicación implementa un diseño limpio y moderno basado en el mockup proporcionado:
+1. Crea una rama: `git checkout -b feature/nueva-funcionalidad`
+2. Haz commits atómicos y claros
+3. Abre un Pull Request con contexto y evidencia (capturas o gifs)
 
-- **Header** con branding del banco
-- **Sidebar** de navegación
-- **Área de contenido** principal
-- **Componentes reutilizables** (botones, inputs, tablas)
-- **Sistema de notificaciones**
-- **Modales** para formularios
+### Licencia
 
-## 🔧 Configuración
-
-### Variables de Entorno
-
-```typescript
-// environments/environment.ts
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:8080/api',
-  appName: 'Banking Portal',
-  // ... más configuraciones
-};
-```
-
-### Micro Frontends
-
-La aplicación está configurada para funcionar como micro frontend usando Module Federation:
-
-```javascript
-// webpack.config.js
-module.exports = {
-  plugins: [
-    new ModuleFederationPlugin({
-      name: 'banking_portal',
-      exposes: {
-        './ClientsModule': './src/app/features/clients/clients.module.ts',
-        // ... más módulos
-      }
-    })
-  ]
-};
-```
-
-## 📱 Responsive Design
-
-La aplicación es completamente responsiva y se adapta a diferentes tamaños de pantalla:
-
-- **Desktop** (> 1024px): Layout completo con sidebar
-- **Tablet** (768px - 1024px): Layout adaptado
-- **Mobile** (< 768px): Layout vertical con navegación horizontal
-
-## 🚀 Despliegue
-
-### Docker
-
-```bash
-# Construir imagen de producción
-docker build -t banking-portal-frontend .
-
-# Ejecutar contenedor
-docker run -p 80:80 banking-portal-frontend
-```
-
-### Variables de Entorno de Producción
-
-```bash
-# Configurar URL de API de producción
-export API_URL=https://api.banking-portal.com/api
-```
-
-## 🧪 Pruebas
-
-### Cobertura de Pruebas
-
-- **Servicios**: 100% de cobertura
-- **Componentes**: 90%+ de cobertura
-- **Utilidades**: 100% de cobertura
-
-### Tipos de Pruebas
-
-- **Unitarias**: Servicios y componentes
-- **Integración**: Flujos completos
-- **E2E**: Casos de uso principales
-
-## 📚 Documentación
-
-- **Comentarios en español** en todos los archivos
-- **JSDoc** para métodos públicos
-- **README** detallado
-- **Guías de contribución**
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crear una rama para la feature (`git checkout -b feature/AmazingFeature`)
-3. Commit los cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 👥 Equipo
-
-- **Desarrollador Frontend**: Implementación completa del frontend
-- **Arquitecto**: Diseño de la arquitectura de micro frontends
-
-## 📞 Soporte
-
-Para soporte técnico o preguntas sobre la implementación, contactar al equipo de desarrollo.
-
----
-
-**Nota**: Esta aplicación es solo el frontend. El backend se implementará por separado y se comunicará a través de APIs REST.
-
-
+MIT. Consulta el archivo `LICENSE` si aplica.
 
