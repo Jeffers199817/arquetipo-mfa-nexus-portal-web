@@ -5,6 +5,10 @@
   <p>Frontend bancario moderno basado en Angular 20, arquitectura modular y Micro Frontends.</p>
 
   <p>
+    <img src="./front.png" alt="Nexus Portal Web - Banking Frontend" style="max-width: 100%; border-radius: 8px;" />
+  </p>
+
+  <p>
     <img alt="Angular" src="https://img.shields.io/badge/Angular-20-dd0031?logo=angular&logoColor=white"> 
     <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white"> 
     <img alt="Build" src="https://img.shields.io/badge/Build-ngx--build--plus-blue"> 
@@ -13,6 +17,28 @@
 </div>
 
 ---
+
+### Backend (Apex Core Service)
+
+- Documento completo del proyecto – SPF MSA APEX CORE SERVICE
+- Fecha: 19 de Octubre, 2025 · Versión: 1.0
+- Proyecto: Microservicio Bancario – Gestión de Clientes, Cuentas y Transacciones
+- Enlace: [Repositorio y Endpoints API](https://github.com/Jeffers199817/spf-msa-apex-core-service/tree/main?tab=readme-ov-file#-endpoints-api)
+
+Inicio rápido (Docker):
+
+```bash
+# Backend - construir y ejecutar
+docker build -t apex-core-service.jar .
+docker run -p 9090:9090 apex-core-service.jar
+# API disponible en: http://localhost:9090
+```
+
+Recursos incluidos del backend:
+
+- BaseDatos.sql – esquema y datos de prueba
+- postman_collection.json – endpoints y casos de prueba
+- Dockerfile – contenedor listo para producción
 
 ### Tabla de contenidos
 

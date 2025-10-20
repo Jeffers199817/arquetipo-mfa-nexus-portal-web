@@ -1,1 +1,1 @@
-"use strict";var banking_portal;(self.webpackChunkbanking_portal=self.webpackChunkbanking_portal||[]).push([[288],{},a=>{var n=a(a.s=8078);banking_portal=n}]);
+"use strict";var banking_portal;(self.webpackChunkbanking_portal=self.webpackChunkbanking_portal||[]).push([[288],{},a=>{var n=a(a.s=497);banking_portal=n}]);

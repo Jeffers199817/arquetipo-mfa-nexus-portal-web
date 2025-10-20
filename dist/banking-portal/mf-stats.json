@@ -47,8 +47,8 @@
         }
       },
       "usedIn": [
-        "./AccountsModule",
         "./ClientsModule",
+        "./AccountsModule",
         "./MovementsModule",
         "./ReportsModule"
       ]
@@ -103,8 +103,8 @@
         }
       },
       "usedIn": [
-        "./AccountsModule",
         "./ClientsModule",
+        "./AccountsModule",
         "./MovementsModule",
         "./ReportsModule"
       ]
