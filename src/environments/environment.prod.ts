@@ -4,8 +4,8 @@
  */
 export const environment = {
   production: true,
-  apiUrl: 'https://dev-api.pichincha.com/spf-msa-apex-core-service',
-  appName: 'Banking Portal',
+  apiUrl: '/spf-msa-apex-core-service',
+  appName: 'arquetipo-mfa-nexus-portal-web',
   version: '1.0.0',
   enableLogging: false,
   enableMockData: false,

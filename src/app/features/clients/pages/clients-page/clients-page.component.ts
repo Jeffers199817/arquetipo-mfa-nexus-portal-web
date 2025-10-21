@@ -13,6 +13,7 @@ import {
   UpdateClientRequest 
 } from '@core/models/client.model';
 import { Gender, GenderLabels } from '@core/models/person.model';
+import * as CryptoJS from 'crypto-js';
 
 /**
  * Componente de página de clientes
@@ -89,8 +90,10 @@ import { Gender, GenderLabels } from '@core/models/person.model';
 
               <app-input
                 label="Identificación"
+                type="tel"
                 formControlName="identification"
                 [required]="true"
+                [maxlength]="10"
                 [errorMessage]="getFieldError('identification')">
               </app-input>
               <div *ngIf="clientForm.get('identification')?.hasError('identificationTaken')" 
@@ -271,8 +274,15 @@ export class ClientsPageComponent implements OnInit, OnDestroy {
    */
   private createForm(): FormGroup {
     const group = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)], [this.uniqueNameValidator()]],
-      identification: ['', [Validators.required, Validators.pattern(/^\d+$/)], [this.uniqueIdentificationValidator()]],
+      name: ['', [
+        Validators.required, 
+        Validators.minLength(2),
+        Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)  // Solo letras y espacios
+      ], [this.uniqueNameValidator()]],
+      identification: ['', [
+        Validators.required, 
+        Validators.pattern(/^\d{10}$/)  // Exactamente 10 dígitos
+      ], [this.uniqueIdentificationValidator()]],
       gender: ['', Validators.required],
       age: ['', [Validators.required, Validators.min(1), Validators.max(120)]],
       address: ['', [Validators.required, Validators.minLength(5)]],
@@ -583,6 +593,16 @@ export class ClientsPageComponent implements OnInit, OnDestroy {
         return `Mínimo ${field.errors['minlength'].requiredLength} caracteres`;
       }
       if (field.errors['pattern']) {
+        // Mensajes específicos según el campo
+        if (fieldName === 'name') {
+          return 'El nombre solo puede contener letras y espacios';
+        }
+        if (fieldName === 'identification') {
+          return 'La identificación debe tener exactamente 10 dígitos';
+        }
+        if (fieldName === 'phone') {
+          return 'El teléfono debe tener exactamente 10 dígitos';
+        }
         return 'Formato inválido';
       }
       if (field.errors['min']) {
@@ -641,11 +661,8 @@ export class ClientsPageComponent implements OnInit, OnDestroy {
    * Hash SHA-256 a hex (para validar contraseña actual localmente)
    */
   private async hashSha256Hex(value: string): Promise<string> {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(value);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    // Usar CryptoJS que funciona sin HTTPS
+    return CryptoJS.SHA256(value).toString(CryptoJS.enc.Hex);
   }
 
   /**

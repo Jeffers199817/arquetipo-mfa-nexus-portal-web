@@ -16,8 +16,8 @@
     "types": {
       "path": "",
       "name": "",
-      "zip": "@mf-types.zip",
-      "api": "@mf-types.d.ts"
+      "zip": "",
+      "api": ""
     },
     "globalName": "banking_portal",
     "pluginVersion": "0.20.0",
@@ -30,25 +30,29 @@
       "requiredVersion": "^20.0.0",
       "shareScope": "default",
       "strictVersion": true,
+      "eager": true,
       "name": "@angular/common",
       "version": "20.3.6",
-      "eager": false,
       "id": "banking_portal:@angular/common",
       "assets": {
         "js": {
           "async": [],
           "sync": [
-            "705.b83837bc43bef97d.js"
+            "remoteEntry.js",
+            "polyfills.90eb791fcd9a2908.js",
+            "main.da1eb50bc90eba37.js"
           ]
         },
         "css": {
           "async": [],
-          "sync": []
+          "sync": [
+            "styles.4cec92bc655b94a8.css"
+          ]
         }
       },
       "usedIn": [
-        "./ClientsModule",
         "./AccountsModule",
+        "./ClientsModule",
         "./MovementsModule",
         "./ReportsModule"
       ]
@@ -58,20 +62,24 @@
       "requiredVersion": "^20.0.0",
       "shareScope": "default",
       "strictVersion": true,
+      "eager": true,
       "name": "@angular/core",
       "version": "20.3.6",
-      "eager": false,
       "id": "banking_portal:@angular/core",
       "assets": {
         "js": {
           "async": [],
           "sync": [
-            "203.5805760005479575.js"
+            "remoteEntry.js",
+            "polyfills.90eb791fcd9a2908.js",
+            "main.da1eb50bc90eba37.js"
           ]
         },
         "css": {
           "async": [],
-          "sync": []
+          "sync": [
+            "styles.4cec92bc655b94a8.css"
+          ]
         }
       },
       "usedIn": [
@@ -86,25 +94,29 @@
       "requiredVersion": "^20.0.0",
       "shareScope": "default",
       "strictVersion": true,
+      "eager": true,
       "name": "@angular/forms",
       "version": "20.3.6",
-      "eager": false,
       "id": "banking_portal:@angular/forms",
       "assets": {
         "js": {
           "async": [],
           "sync": [
-            "417.9523301e8152af9e.js"
+            "remoteEntry.js",
+            "polyfills.90eb791fcd9a2908.js",
+            "main.da1eb50bc90eba37.js"
           ]
         },
         "css": {
           "async": [],
-          "sync": []
+          "sync": [
+            "styles.4cec92bc655b94a8.css"
+          ]
         }
       },
       "usedIn": [
-        "./ClientsModule",
         "./AccountsModule",
+        "./ClientsModule",
         "./MovementsModule",
         "./ReportsModule"
       ]
@@ -114,20 +126,24 @@
       "requiredVersion": "^20.0.0",
       "shareScope": "default",
       "strictVersion": true,
+      "eager": true,
       "name": "@angular/router",
       "version": "20.3.6",
-      "eager": false,
       "id": "banking_portal:@angular/router",
       "assets": {
         "js": {
           "async": [],
           "sync": [
-            "825.4a0914a25c28783b.js"
+            "remoteEntry.js",
+            "polyfills.90eb791fcd9a2908.js",
+            "main.da1eb50bc90eba37.js"
           ]
         },
         "css": {
           "async": [],
-          "sync": []
+          "sync": [
+            "styles.4cec92bc655b94a8.css"
+          ]
         }
       },
       "usedIn": []
@@ -136,27 +152,31 @@
       "singleton": true,
       "requiredVersion": "^7.8.2",
       "shareScope": "default",
+      "eager": true,
       "name": "rxjs",
       "version": "7.8.2",
-      "eager": false,
       "id": "banking_portal:rxjs",
       "assets": {
         "js": {
           "async": [],
           "sync": [
-            "322.f2229c620dc548a8.js"
+            "remoteEntry.js",
+            "polyfills.90eb791fcd9a2908.js",
+            "main.da1eb50bc90eba37.js"
           ]
         },
         "css": {
           "async": [],
-          "sync": []
+          "sync": [
+            "styles.4cec92bc655b94a8.css"
+          ]
         }
       },
       "usedIn": [
-        "./ClientsModule",
+        "./ReportsModule",
         "./AccountsModule",
-        "./MovementsModule",
-        "./ReportsModule"
+        "./ClientsModule",
+        "./MovementsModule"
       ]
     }
   ],

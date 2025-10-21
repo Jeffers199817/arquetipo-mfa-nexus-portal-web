@@ -12,12 +12,14 @@ module.exports = {
         './ReportsModule': './src/app/features/reports/pages/reports-page/reports-page.component.ts'
       },
       shared: {
-        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0' },
-        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0' },
-        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0' },
-        '@angular/forms': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0' },
-        'rxjs': { singleton: true }
-      }
+        '@angular/core': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0', eager: true },
+        '@angular/common': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0', eager: true },
+        '@angular/router': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0', eager: true },
+        '@angular/forms': { singleton: true, strictVersion: true, requiredVersion: '^20.0.0', eager: true },
+        'rxjs': { singleton: true, eager: true }
+      },
+      // Desactivar generación de tipos en producción
+      dts: false
     })
   ]
 };
