@@ -32,10 +32,32 @@
 
 ---
 
+### 🚀 Inicio Rápido (Frontend)
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Jeffers199817/arquetipo-mfa-nexus-portal-web.git
+cd arquetipo-mfa-nexus-portal-web
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Construir el proyecto (opcional, para verificar que todo compila)
+npm run build
+
+# 4. Ejecutar en modo desarrollo
+npm start
+# Frontend disponible en: http://localhost:4200
+```
+
+**Nota importante**: Asegúrate de tener Node.js ≥ 18.19.x instalado. El servidor de desarrollo incluye proxy automático al backend configurado en `proxy.conf.json`.
+
+---
+
 ### Backend (Apex Core Service)
 
 - Documento completo del proyecto – SPF MSA APEX CORE SERVICE
-- Fecha: 19 de Octubre, 2025 · Versión: 1.0
+- Fecha: 19 de Octubre, 2025 · Versión: 2.0 ⭐ ACTUALIZADO
 - Proyecto: Microservicio Bancario – Gestión de Clientes, Cuentas y Transacciones
 - Enlace: [Repositorio y Endpoints API](https://github.com/Jeffers199817/spf-msa-apex-core-service/tree/main?tab=readme-ov-file#-endpoints-api)
 

@@ -39,8 +39,8 @@
           "async": [],
           "sync": [
             "remoteEntry.js",
-            "polyfills.90eb791fcd9a2908.js",
-            "main.da1eb50bc90eba37.js"
+            "polyfills.c4e3192e3e8e1d60.js",
+            "main.f36c69c139b73d2c.js"
           ]
         },
         "css": {
@@ -51,10 +51,10 @@
         }
       },
       "usedIn": [
+        "./ReportsModule",
         "./AccountsModule",
         "./ClientsModule",
-        "./MovementsModule",
-        "./ReportsModule"
+        "./MovementsModule"
       ]
     },
     {
@@ -71,8 +71,8 @@
           "async": [],
           "sync": [
             "remoteEntry.js",
-            "polyfills.90eb791fcd9a2908.js",
-            "main.da1eb50bc90eba37.js"
+            "polyfills.c4e3192e3e8e1d60.js",
+            "main.f36c69c139b73d2c.js"
           ]
         },
         "css": {
@@ -103,8 +103,8 @@
           "async": [],
           "sync": [
             "remoteEntry.js",
-            "polyfills.90eb791fcd9a2908.js",
-            "main.da1eb50bc90eba37.js"
+            "polyfills.c4e3192e3e8e1d60.js",
+            "main.f36c69c139b73d2c.js"
           ]
         },
         "css": {
@@ -115,10 +115,10 @@
         }
       },
       "usedIn": [
+        "./ReportsModule",
         "./AccountsModule",
         "./ClientsModule",
-        "./MovementsModule",
-        "./ReportsModule"
+        "./MovementsModule"
       ]
     },
     {
@@ -135,8 +135,8 @@
           "async": [],
           "sync": [
             "remoteEntry.js",
-            "polyfills.90eb791fcd9a2908.js",
-            "main.da1eb50bc90eba37.js"
+            "polyfills.c4e3192e3e8e1d60.js",
+            "main.f36c69c139b73d2c.js"
           ]
         },
         "css": {
@@ -161,8 +161,8 @@
           "async": [],
           "sync": [
             "remoteEntry.js",
-            "polyfills.90eb791fcd9a2908.js",
-            "main.da1eb50bc90eba37.js"
+            "polyfills.c4e3192e3e8e1d60.js",
+            "main.f36c69c139b73d2c.js"
           ]
         },
         "css": {
