@@ -20,8 +20,8 @@
 
 ### Producción (Demo)
 
-- **URL pública**: [`http://vps-5405471-x.dattaweb.com:4200/clients`](http://vps-5405471-x.dattaweb.com:4200)
-- **Nota**: Este enlace apunta al entorno desplegado para demostración del portal. La ruta inicial recomendada es `\u002fclients`.
+- **URL pública**: [`http://vps-5405471-x.dattaweb.com:4200`](http://vps-5405471-x.dattaweb.com:4200)
+- **Nota**: Este enlace apunta al entorno desplegado para demostración del portal. La ruta inicial recomendada es `\clients`.
 
 ---
 
