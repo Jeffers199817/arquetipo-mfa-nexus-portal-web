@@ -2,7 +2,14 @@
   
   <h1>Arquetipo MFA · Nexus Portal Web (Banking Portal)</h1>
 
-  <p>Frontend bancario moderno basado en Angular 20, arquitectura modular y Micro Frontends.</p>
+  <p>
+    <strong>Fecha:</strong> 19 de Octubre, 2025 · <strong>Versión:</strong> 2.0 ⭐ ACTUALIZADO<br>
+    <strong>Proyecto:</strong> Frontend Bancario Empresarial – Gestión de Clientes, Cuentas y Transacciones<br>
+    <strong>Estado:</strong> ✅ DESPLEGADO EN PRODUCCIÓN
+  </p>
+
+  <p>Frontend bancario moderno basado en <strong>Angular 20</strong>, arquitectura modular y <strong>Micro Frontends (MFA)</strong>.<br>
+  Diseñado con componentes reutilizables, lazy loading y optimización para producción.</p>
 
   <p>
     <img src="./front.png" alt="Nexus Portal Web - Banking Frontend" style="max-width: 100%; border-radius: 8px;" />
