@@ -12,7 +12,8 @@
   Diseñado con componentes reutilizables, lazy loading y optimización para producción.</p>
 
   <p>
-    <img src="./front.png" alt="Nexus Portal Web - Banking Frontend" style="max-width: 100%; border-radius: 8px;" />
+    <img src="<img width="2544" height="1416" alt="image" src="https://github.com/user-attachments/assets/f01c3d3e-7ef2-4a82-8b4c-38a7128ad926" />
+" alt="Nexus Portal Web - Banking Frontend" style="max-width: 100%; border-radius: 8px;" />
   </p>
 
   <p>
