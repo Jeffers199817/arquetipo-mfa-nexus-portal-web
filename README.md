@@ -86,8 +86,10 @@ Recursos incluidos del backend:
 - Comandos disponibles
 - Configuración de entornos
 - Proxy de desarrollo (API)
+- **Docker para desarrollo local** ⭐ [Ver guía completa](./DOCKER-LOCAL.md)
 - Construcción para producción
 - Despliegue con Nginx
+- Despliegue con Docker Compose
 - Estructura del proyecto
 - Contribución y licencia
 
@@ -240,6 +242,12 @@ Producción (`nginx/nginx.prod.conf`):
 - Seguridad: encabezados `X-*`, `CSP` con `connect-src` al backend
 - Proxy a backend: `/spf-msa-apex-core-service` → `http://vps-5405471-x.dattaweb.com:9090/spf-msa-apex-core-service`
 
+**Desarrollo Local** (`nginx/nginx.local.conf`):
+
+- Puerto: `4200`
+- Proxy a backend local: `/spf-msa-apex-core-service` → `http://host.docker.internal:9090/spf-msa-apex-core-service`
+- CORS habilitado para desarrollo
+
 ```nginx
 # SPA
 location / {
@@ -257,7 +265,9 @@ location /health { return 200 "healthy\n"; }
 
 ### Despliegue con Docker Compose
 
-Se incluye un `docker-compose.yml` para levantar el frontend en contenedor.
+Se incluyen configuraciones separadas para desarrollo local y producción.
+
+#### **Producción** (apunta al backend en producción)
 
 ```bash
 # Requisitos: Docker Desktop o Docker Engine
@@ -272,14 +282,34 @@ docker compose logs -f web
 docker compose down
 ```
 
+#### **Desarrollo Local** (apunta a tu backend local) ⭐
+
+```bash
+# Opción 1: Usar el script de Windows
+docker-local.bat
+
+# Opción 2: Comando manual
+docker-compose -f docker-compose.local.yml up --build
+
+# Ver logs
+docker-compose -f docker-compose.local.yml logs -f
+
+# Detener
+docker-compose -f docker-compose.local.yml down
+```
+
+**📖 Guía completa**: [DOCKER-LOCAL.md](./DOCKER-LOCAL.md)
+
 Acceso local tras el despliegue:
 
 - Aplicación: `http://localhost:4200/clients`
+- Backend (debe estar corriendo): `http://localhost:9090`
 
 Detalles relevantes del servicio (`web`):
 
 - Puerto mapeado: `4200:4200`
 - Healthcheck: `GET http://localhost:4200/health` (responde 200 con el HTML de la app)
+- **Local**: Usa `host.docker.internal` para conectar al backend en Windows
 
 ### Estructura del proyecto
 

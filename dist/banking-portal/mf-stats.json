@@ -51,10 +51,10 @@
         }
       },
       "usedIn": [
-        "./ReportsModule",
         "./AccountsModule",
         "./ClientsModule",
-        "./MovementsModule"
+        "./MovementsModule",
+        "./ReportsModule"
       ]
     },
     {
@@ -115,10 +115,10 @@
         }
       },
       "usedIn": [
-        "./ReportsModule",
         "./AccountsModule",
         "./ClientsModule",
-        "./MovementsModule"
+        "./MovementsModule",
+        "./ReportsModule"
       ]
     },
     {
@@ -173,10 +173,10 @@
         }
       },
       "usedIn": [
-        "./ReportsModule",
         "./AccountsModule",
         "./ClientsModule",
-        "./MovementsModule"
+        "./MovementsModule",
+        "./ReportsModule"
       ]
     }
   ],
